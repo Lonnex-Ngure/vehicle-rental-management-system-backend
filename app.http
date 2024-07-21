@@ -1,0 +1,467 @@
+###
+# Authentication
+
+# Register User
+POST http://localhost:8000/api/auth/register
+Content-Type: application/json
+
+{
+  "fullName": "Beatrice Njambi Ngure",
+  "email": "beatrice@gmail.com",
+  "contactPhone": "0726469823",
+  "address": "123 Main St, umoja, LA",
+  //"role": "admin",
+  "password": "beatricengure"
+}
+
+###
+# Log in
+POST http://localhost:8000/api/auth/login
+Content-Type: application/json
+
+{
+  "email": "virginiahwanjiru@gmail.com",
+  "password": "#password"
+}
+
+###
+# Fetch all users (protected, admin only)
+GET http://localhost:8000/api/users
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDc5ODUxM30.oIS9SE4KzvWACaIz6GkAie4mSwr63lGcLDqtCVedbnw
+
+###
+# Fetch a user by ID (protected, admin only) 
+GET http://localhost:8000/api/users/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDc5ODUxM30.oIS9SE4KzvWACaIz6GkAie4mSwr63lGcLDqtCVedbnw
+
+
+###
+# Create a new user (protected, admin only)
+POST http://localhost:8000/api/users
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDc5ODUxM30.oIS9SE4KzvWACaIz6GkAie4mSwr63lGcLDqtCVedbnw
+
+{
+  "fullName": "Jane Smith",
+  "email": "jane.smith@example.com",
+  "contactPhone": "9876543210",
+  "address": "456 Elm St, Othertown, USA",
+  "role": "user"
+}
+
+###
+# Update an existing user (protected, admin only)
+PUT http://localhost:8000/api/users/5
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDc5ODUxM30.oIS9SE4KzvWACaIz6GkAie4mSwr63lGcLDqtCVedbnw
+
+{
+  "fullName": "Sophia Garcia velasquez",
+  "email": "sophia.garcia@example.com",
+  "contactPhone": "6789012345",
+  "address": "90 Duchess St, Springfield",
+  "role": "user"
+}
+
+###
+# Delete a user (protected, admin only)
+DELETE http://localhost:8000/api/users/0
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDc5ODUxM30.oIS9SE4KzvWACaIz6GkAie4mSwr63lGcLDqtCVedbnw
+
+
+###
+# Vehicle Specifications Table
+# List all vehicle specifications (user)
+GET http://localhost:8000/api/vehicle-specifications
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwNzk5MDg1fQ.CDlv85dWcpW2Lx0wbuZfO1YnKeZ_pzuyMnZZEXC9pho
+
+###
+
+# Get vehicle specification by ID (user)
+GET http://localhost:8000/api/vehicle-specifications/8
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwNzk5MDg1fQ.CDlv85dWcpW2Lx0wbuZfO1YnKeZ_pzuyMnZZEXC9pho
+
+###
+# Create a new vehicle specification (protected, admin only)
+POST http://localhost:8000/api/vehicle-specifications
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwNzE2NDg2fQ.-vyxGB7cy4elvldOfnpl_1d8YoPnUqn2UyM9l-nqSmw
+
+
+{
+  "manufacturer": "lonnex",
+  "model": "ngure",
+  "year": 2023,
+  "fuelType": "Gasoline",
+  "engineCapacity": 1800,
+  "transmission": "Automatic",
+  "seatingCapacity": 5,
+  "color": "Silver",
+  "features": "Bluetooth, Backup Camera, Lane Departure Warning,2-wheeler"
+}
+
+###
+
+# Update vehicle specification by ID (protected, admin only)
+PUT http://localhost:8000/api/vehicle-specifications/11
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDcwMzYwNX0.GezrmZNrMxbvG5-RmPaWjR8yjVmMJwd0JpXRz9CcGU4
+
+{
+  "manufacturer": "Toyota",
+  "model": "Corolla",
+  "year": 2023,
+  "fuelType": "Hybrid",
+  "engineCapacity": 1800,
+  "transmission": "CVT",
+  "seatingCapacity": 5,
+  "color": "Blue",
+  "features": "Bluetooth, Backup Camera, Lane Departure Warning, Adaptive Cruise Control"
+}
+
+###
+
+# Delete vehicle specification by ID (protected, admin only)
+DELETE http://localhost:8000/api/vehicle-specifications/11
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDcwMzYwNX0.GezrmZNrMxbvG5-RmPaWjR8yjVmMJwd0JpXRz9CcGU4
+
+
+###
+# List all vehicles (protected, user or admin)
+GET http://localhost:8000/api/vehicles
+//Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwNTQwNTA1fQ.Oo5G3SI8zJnahnkfnoKcjycPRZCkufdRHmSo4sGP2Fg
+
+
+###
+
+# Get vehicle by ID (protected, user or admin)
+GET http://localhost:8000/api/vehicles/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNiIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwMDkwMzQyfQ.myeXIzVjPf7Cs-mN7MgJjeaJ9Unr0yXJfP9rvTUAFtQ
+
+
+###
+
+# Create a new vehicle (protected, admin only)
+POST http://localhost:8000/api/vehicles
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDcwMzYwNX0.GezrmZNrMxbvG5-RmPaWjR8yjVmMJwd0JpXRz9CcGU4
+
+
+{
+  "vehicleSpecId": 12,
+  "rentalRate": 100,
+  "availability": true
+}
+
+###
+
+# Update a vehicle (protected, admin only)
+PUT http://localhost:8000/api/vehicles/12
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+
+{
+  "vehicleSpecId": 1,
+  "rentalRate": 150,
+  "availability": false
+}
+
+###
+
+# Delete a vehicle (protected, admin only)
+DELETE http://localhost:8000/api/vehicles/12
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDcwMzYwNX0.GezrmZNrMxbvG5-RmPaWjR8yjVmMJwd0JpXRz9CcGU4
+
+
+
+
+###
+# List all locations (protected, user or admin)
+GET http://localhost:8000/api/locations
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwNzAzMzY0fQ.wOTMl93L4xEtL1XsjzwVB8cpIN8p5DuB1Y74EB3jtY0
+
+
+###
+# Get location by ID (protected, user or admin)
+GET http://localhost:8000/api/locations/5
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNiIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwMDkwMzQyfQ.myeXIzVjPf7Cs-mN7MgJjeaJ9Unr0yXJfP9rvTUAFtQ
+
+###
+# Create a new location (protected, admin only)
+POST http://localhost:8000/api/locations
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxOCIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDcwMzYwNX0.GezrmZNrMxbvG5-RmPaWjR8yjVmMJwd0JpXRz9CcGU4
+
+{
+  "name": "Nairobi",
+  "address": "123 Main St",
+  "contactPhone": "56789012"
+}
+
+###
+# Update a location (protected, admin only)
+PUT http://localhost:8000/api/locations/12
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+
+{
+  "name": "Downtown",
+  "address": "456 Main St",
+  "contactPhone": "56789012"
+}
+
+###
+# Delete a location (protected, admin only)
+DELETE http://localhost:8000/api/locations/12
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+
+
+###
+# Get all bookings (protected, user or admin)
+GET http://localhost:8000/api/bookings
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwNzE2NDg2fQ.-vyxGB7cy4elvldOfnpl_1d8YoPnUqn2UyM9l-nqSmw
+
+###
+# Get a booking by ID (protected, user or admin)
+GET http://localhost:8000/api/bookings/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNiIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwMDkwMzQyfQ.myeXIzVjPf7Cs-mN7MgJjeaJ9Unr0yXJfP9rvTUAFtQ
+
+###
+# Create a new booking (protected, admin only)
+POST http://localhost:8000/api/bookings
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIzMSIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwNzI5MDEwfQ.I5NMSiGKprglRPa045FuUMn99M-xGXX71icImLZJt1g
+
+{
+  "userId": 1,
+  "vehicleId": 2,
+ "locationId": 3,
+  "bookingDate": "2023-06-15T00:00:00.000Z",
+  "returnDate": "2023-06-20T00:00:00.000Z",
+  "totalAmount": 10000,
+  "bookingStatus": "Pending",
+  "location": "Nakuru"
+}
+
+###
+# Update a booking by ID (protected, admin only)
+PUT http://localhost:8000/api/bookings/12
+Content-Type: application/json
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+
+{
+  "userId": 1,
+  "vehicleId": 2,
+  "locationId": 3,
+  "bookingDate": "2023-06-15T00:00:00.000Z",
+  "returnDate": "2023-06-20T00:00:00.000Z",
+  "totalAmount": 12000,
+  "bookingStatus": "Confirmed"
+}
+
+###
+# Delete a booking by ID (protected, admin only)
+DELETE http://localhost:8000/api/bookings/9
+Authorization:  eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+
+
+### Create Payment Intent
+POST http://localhost:8000/api/payments/create-payment-intent
+Content-Type: application/json
+
+{
+  "amount": 3000
+}
+
+### Process Payment
+POST http://localhost:8000/api/payments/process
+Content-Type: application/json
+
+{
+  "bookingId": 1,
+  "paymentMethodId": "pm_1234567890"
+}
+
+###
+#payments table
+# List all payments (protected, user or admin)
+GET http://localhost:8000/api/payments
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNiIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwMDkwMzQyfQ.myeXIzVjPf7Cs-mN7MgJjeaJ9Unr0yXJfP9rvTUAFtQ
+
+###
+# Get payment by ID (protected, user or admin)
+GET http://localhost:8000/api/payments/8
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNiIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwMDkwMzQyfQ.myeXIzVjPf7Cs-mN7MgJjeaJ9Unr0yXJfP9rvTUAFtQ
+
+###
+# Create a new payment (protected, admin only)
+POST http://localhost:8000/api/payments
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+{
+  "bookingId": 1,
+  "amount": 10000,
+  "paymentStatus": "Completed",
+  "paymentDate": "2023-07-04T12:00:00Z",
+  "paymentMethod": "Credit Card",
+  "transactionId": "txn_123456789"
+}
+
+###
+# Update payment by ID (protected, admin only)
+PUT http://localhost:8000/api/payments/12
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+{
+  "bookingId": 1,
+  "amount": 12000,
+  "paymentStatus": "Completed",
+  "paymentDate": "2023-07-04T14:00:00Z",
+  "paymentMethod": "mpesa",
+  "transactionId": "lonnex"
+}
+
+###
+# Delete payment by ID (protected, admin only)
+DELETE http://localhost:8000/api/payments/12
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+
+
+###
+# Authentications Table
+# List all authentications (protected, admin only)
+GET http://localhost:8000/api/authentications
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+###
+# Get authentication by ID (protected, admin only)
+GET http://localhost:8000/api/authentications/14
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+### Create a new authentication (protected, admin only)
+POST http://localhost:8000/api/authentications
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+{
+  "userId": 5,
+  "password": "hashedPassword123"
+}
+
+###
+# Update authentication by ID (protected, admin only)
+PUT http://localhost:8000/api/authentications/16
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+{
+  "userId": 5,
+  "password": "newHashedPassword456"
+}
+
+###
+
+# Delete authentication by ID (protected, admin only)
+DELETE http://localhost:8000/api/authentications/16
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+
+
+
+###
+# Customer Support Tickets Table
+# List all customer support tickets (admin only)
+GET http://localhost:8000/api/customer-support-tickets
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+###
+# Get customer support ticket by ID (admin)
+GET http://localhost:8000/api/customer-support-tickets/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDA5MDgwOX0.YKkIUdxfPR9AQ8tOWcN5BZvgbcU8tM8s6e4PYe8p96w
+
+### Create a new customer support ticket (user)
+POST http://localhost:8000/api/customer-support-tickets
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNiIsInJvbGUiOiJ1c2VyIiwiZXhwIjoxNzIwMTAxMzc3fQ.qutw-gpFAN3Ap7oD3MAdtCEwKxgDLCzKZFcqzrjoJag
+
+{
+  "userId": 10,
+  "subject": "Vehicle Issue",
+  "description": "The car i rented has alignment issues."
+
+}
+
+###
+# Update customer support ticket by ID (admin only)
+PUT http://localhost:8000/api/customer-support-tickets/12
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDEwMTU5NH0.hiYeSWdQQKBDqA-m84eKysoLv4eyEE6ybqCyDTesBfo
+
+{
+  "userId": 1,
+  "subject": "Vehicle Issue - Updated",
+  "description": "The car I rented has a flat tire. A technician has been dispatched."
+}
+
+###
+# Delete customer support ticket by ID (admin only)
+DELETE http://localhost:8000/api/customer-support-tickets/12
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDEwMTU5NH0.hiYeSWdQQKBDqA-m84eKysoLv4eyEE6ybqCyDTesBfo
+
+
+
+###
+# Fleet Management Table
+# List all fleet management items (admin only)
+GET http://localhost:8000/api/fleet-management
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDEwMTU5NH0.hiYeSWdQQKBDqA-m84eKysoLv4eyEE6ybqCyDTesBfo
+
+###
+# Get fleet management item by ID (admin only)
+GET http://localhost:8000/api/fleet-management/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDEwMTU5NH0.hiYeSWdQQKBDqA-m84eKysoLv4eyEE6ybqCyDTesBfo
+
+
+
+### Create a new fleet management item (admin only)
+POST http://localhost:8000/api/fleet-management
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDEwMTU5NH0.hiYeSWdQQKBDqA-m84eKysoLv4eyEE6ybqCyDTesBfo
+
+{
+  "vehicleId": 1,
+  "acquisitionDate": "2023-01-01T00:00:00Z",
+  "depreciationRate": 1000,
+  "currentValue": 2500000,
+  "maintenanceCost": 50000,
+  "status": "Active"
+}
+
+###
+# Update fleet management item by ID (admin only)
+PUT http://localhost:8000/api/fleet-management/12
+Content-Type: application/json
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDEwMTU5NH0.hiYeSWdQQKBDqA-m84eKysoLv4eyEE6ybqCyDTesBfo
+
+{
+  "vehicleId": 1,
+  "acquisitionDate": "2023-01-01T00:00:00Z",
+  "depreciationRate": 1200,
+  "currentValue": 2400000,
+  "maintenanceCost": 55000,
+  "status": "Under Maintenance"
+}
+
+###
+# Delete fleet management item by ID (admin only)
+DELETE http://localhost:8000/api/fleet-management/12
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxNyIsInJvbGUiOiJhZG1pbiIsImV4cCI6MTcyMDEwMTU5NH0.hiYeSWdQQKBDqA-m84eKysoLv4eyEE6ybqCyDTesBfo
+
